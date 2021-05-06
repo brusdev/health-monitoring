@@ -6,3 +6,5 @@ Health Monitoring uses IoT technologies to implement a health monitoring system.
 # [Sensor](/sensor)
 
 # [Service](/service)
+
+# [Dashboard](https://github.com/brusdev/health-monitoring-dashboard)
