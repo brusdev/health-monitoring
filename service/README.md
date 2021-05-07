@@ -7,7 +7,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 ## Creating the application
 
 ```shell script
-mvn io.quarkus:quarkus-maven-plugin:1.12.2.Final:create \
+mvn io.quarkus:quarkus-maven-plugin:1.13.3.Final:create \
     -DprojectGroupId=dev.brus.health \
     -DprojectArtifactId=health-service \
     -Dextensions="amqp, resteasy-jsonb, resteasy-mutiny, openshift" \
@@ -58,13 +58,9 @@ If you want to learn more about building native executables, please consult http
 ## Deploy the application on OpenShift
 
 ```shell script
-./mvnw clean package -Dquarkus.kubernetes.deploy=true \
-    -Dquarkus.kubernetes-client.trust-certs=true
-```
-
-## Expose the application route
-```shell script
-oc expose svc/health-service
+./mvnw clean package -Dquarkus.openshift.route.expose=true \
+    -Dquarkus.kubernetes-client.trust-certs=true \
+    -Dquarkus.kubernetes.deploy=true \
 ```
 
 ## Related guides
@@ -72,4 +68,3 @@ oc expose svc/health-service
 - SmallRye Reactive Messaging - AMQP Connector ([guide](https://quarkus.io/guides/amqp)): Connect to AMQP with Reactive Messaging
 - OpenShift ([guide](https://quarkus.io/guides/openshift)): Generate OpenShift resources from annotations
 - RESTEasy JSON-B ([guide](https://quarkus.io/guides/rest-json)): JSON-B serialization support for RESTEasy
-
